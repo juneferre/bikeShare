@@ -51,6 +51,6 @@ all
 
 
 
-ggsave(filename = "BikeShareEDA.png",plot = all, width = 8,height = 6,dpi = 300)
+#ggsave(filename = "BikeShareEDA.png",plot = all, width = 8,height = 6,dpi = 300)
 
 
