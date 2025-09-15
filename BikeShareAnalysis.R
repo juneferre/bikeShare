@@ -4,7 +4,8 @@ library(vroom)
 
 train <- vroom("/Users/juneferre/fall2025/stat348/Kaggle/bikeShare/train.csv")
 train <- train |>
-  select(-casual, -registered) 
+  select(-casual, -registered) |>
+  mutate(weather = as_factor(weather))
 
 
 test <- vroom("/Users/juneferre/fall2025/stat348/Kaggle/bikeShare/test.csv")
@@ -29,3 +30,4 @@ kaggle_submission <- bike_predictions %>%
   mutate(count=pmax(0, count)) %>%
   mutate(datetime=as.character(format(datetime)))
 
+vroom_write(x=kaggle_submission, file="./LinearPreds.csv", delim=',')
